@@ -2,6 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
+# === Do NOT ignore image/audio files ===
+!*.png
+!*.jpg
+!*.jpeg
+!*.mp3
+
 .utmp/
 /[Ll]ibrary/
 /[Tt]emp/
