@@ -73,8 +73,24 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"엔드포인트 도달! 수집한 아이템: {itemCount}개");
         CollectedItemCount = itemCount;
-        // TODO: "BossScene"은 실제 보스 씬의 이름으로 변경해야 합니다.
-        SceneManager.LoadScene("BossScene");
+
+        string currentScene = SceneManager.GetActiveScene().name;
+        string nextScene = "";
+
+        switch (currentScene)
+        {
+            case "Choco_Run":
+                nextScene = "Choco_Boss";
+                break;
+            case "BANANA_Run":
+                nextScene = "Banana_Boss";
+                break;
+            case "StrawBerry_Run":
+                nextScene = "Strawberry_Boss";
+                break;
+        }
+
+        if (!string.IsNullOrEmpty(nextScene)) SceneManager.LoadScene(nextScene);
     }
 
     /// <summary>

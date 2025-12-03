@@ -3361,6 +3361,7 @@ MonoBehaviour:
   gameTime: 0
   isGameActive: 1
   currentSpeed: 5
+  isTestMode: 1
   sceneDifficulty: 1
   minSpawnRatesByDifficulty:
   - 4

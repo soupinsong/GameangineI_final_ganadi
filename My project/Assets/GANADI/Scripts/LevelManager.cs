@@ -17,6 +17,10 @@ public class LevelManager : MonoBehaviour
     public bool isGameActive = true;  // 게임이 진행중인지 여부
     public float currentSpeed = 5f;
 
+    [Header("테스트 모드")]
+    [Tooltip("이 옵션을 체크하면 아이템 10개를 가지고 시작하며, 엔드포인트가 즉시 생성됩니다.")]
+    public bool isTestMode = false;
+
     [Header("난이도 설정")]
     public Difficulty sceneDifficulty = Difficulty.Normal; // 이 씬의 난이도
 
@@ -52,6 +56,22 @@ public class LevelManager : MonoBehaviour
         SetLevel((int)sceneDifficulty);
     }
 
+    void Start()
+    {
+        // 테스트 모드가 활성화된 경우
+        if (isTestMode)
+        {
+            Debug.Log("--- 테스트 모드 활성화 ---");
+
+            // 1. 아이템 10개 설정 및 UI 업데이트
+            PlayerController.nextStageItemCount = 10;
+            if (UIManager.Instance != null) UIManager.Instance.UpdateItemCountUI(10);
+            Debug.Log("테스트 모드: 아이템 10개 지급");
+
+            // 2. 엔드포인트 즉시 생성
+            SpawnEndpoint();
+        }
+    }
     void Update()
     {
         if (!isGameActive) return;
@@ -59,10 +79,10 @@ public class LevelManager : MonoBehaviour
         gameTime += Time.deltaTime;
 
         // EndPoint 생성 시간이 되었고, 아직 생성되지 않았다면 생성
-        if (!endPointSpawned && gameTime >= endPointSpawnTimes[currentLevel])
+        // 테스트 모드가 아닐 때만 시간 기반으로 생성
+        if (!isTestMode && !endPointSpawned && gameTime >= endPointSpawnTimes[currentLevel])
         {
-            endPointSpawner.Spawn();
-            endPointSpawned = true;
+            SpawnEndpoint();
         }
     }
 
@@ -105,5 +125,17 @@ public class LevelManager : MonoBehaviour
     {
         isGameActive = false; // 스포너 등 모든 활성 로직 정지
         currentSpeed = 0f; // 배경 스크롤 등 모든 움직임 정지
+    }
+
+    /// <summary>
+    /// 엔드포인트를 생성하고 관련 상태를 업데이트하는 함수입니다.
+    /// </summary>
+    private void SpawnEndpoint()
+    {
+        if (endPointSpawner == null || endPointSpawned) return;
+
+        endPointSpawner.Spawn();
+        endPointSpawned = true;
+        Debug.Log("테스트 모드: 엔드포인트 즉시 생성");
     }
 }

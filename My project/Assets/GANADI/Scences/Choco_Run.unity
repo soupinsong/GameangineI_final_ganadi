@@ -3235,7 +3235,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2140840003}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1713587443
@@ -3451,6 +3452,7 @@ MonoBehaviour:
   gameTime: 0
   isGameActive: 1
   currentSpeed: 5
+  isTestMode: 1
   sceneDifficulty: 0
   minSpawnRatesByDifficulty:
   - 4
@@ -4365,7 +4367,7 @@ RectTransform:
   - {fileID: 645622146}
   - {fileID: 122879918}
   - {fileID: 1816757460}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1713587442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4448,5 +4450,4 @@ SceneRoots:
   - {fileID: 1713587442}
   - {fileID: 1990078394}
   - {fileID: 425979428}
-  - {fileID: 2140840003}
   - {fileID: 1104438202}
