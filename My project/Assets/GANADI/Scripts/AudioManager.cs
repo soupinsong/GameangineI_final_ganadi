@@ -7,6 +7,11 @@ public class AudioManager : MonoBehaviour
 
     [Header("BGM")]
     public AudioSource bgmSource; // 배경음악을 재생할 AudioSource
+    public AudioClip mainMenuBgm;     // 메인 메뉴 BGM
+    public AudioClip runningGameBgm;  // 러닝 게임 BGM
+    public AudioClip bossSceneBgm;    // 보스전 BGM
+
+
 
     [Header("SFX")]
     public AudioSource sfxSource; // 효과음을 재생할 AudioSource
@@ -14,6 +19,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip collisionSfx;
     public AudioClip gameOverSfx;
     public AudioClip buttonClickSfx;
+    public AudioClip jumpSfx; // 점프 효과음 추가
+    public AudioClip attackSfx; // 공격 효과음 추가
 
 
     void Awake()
@@ -27,6 +34,16 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    // 오브젝트가 파괴될 때 호출됩니다.
+    void OnDestroy()
+    {
+        // 현재 인스턴스가 싱글톤 인스턴스라면, 참조를 null로 초기화합니다.
+        if (Instance == this)
+        {
+            Instance = null;
         }
     }
 
@@ -73,5 +90,21 @@ public class AudioManager : MonoBehaviour
     {
         MuteMusic(mute);
         MuteSfx(mute);
+    }
+
+    /// <summary>
+    /// 지정된 배경음악을 재생합니다. 현재 재생 중인 BGM과 다를 경우에만 교체합니다.
+    /// </summary>
+    /// <param name="bgmClip">재생할 BGM 오디오 클립</param>
+    public void PlayBgm(AudioClip bgmClip)
+    {
+        if (bgmSource == null || bgmClip == null) return;
+
+        // 현재 재생 중인 BGM과 다를 경우에만 교체
+        if (bgmSource.clip != bgmClip)
+        {
+            bgmSource.clip = bgmClip;
+            bgmSource.Play();
+        }
     }
 }

@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     public float currentSpeed = 5f;
 
     [Header("테스트 모드")]
-    [Tooltip("이 옵션을 체크하면 아이템 10개를 가지고 시작하며, 엔드포인트가 즉시 생성됩니다.")]
+    [Tooltip("이 옵션을 체크하면 아이템 50개를 가지고 시작하며, 엔드포인트가 즉시 생성됩니다.")]
     public bool isTestMode = false;
 
     [Header("난이도 설정")]
@@ -64,9 +64,9 @@ public class LevelManager : MonoBehaviour
             Debug.Log("--- 테스트 모드 활성화 ---");
 
             // 1. 아이템 10개 설정 및 UI 업데이트
-            PlayerController.nextStageItemCount = 10;
-            if (UIManager.Instance != null) UIManager.Instance.UpdateItemCountUI(10);
-            Debug.Log("테스트 모드: 아이템 10개 지급");
+            PlayerController.nextStageItemCount = 50;
+            if (UIManager.Instance != null) UIManager.Instance.UpdateItemCountUI(50);
+            Debug.Log("테스트 모드: 아이템 50개 지급");
 
             // 2. 엔드포인트 즉시 생성
             SpawnEndpoint();

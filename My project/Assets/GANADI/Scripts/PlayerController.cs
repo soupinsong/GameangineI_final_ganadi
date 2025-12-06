@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isAutoWalking = false;
     private Transform endPointTarget;
-    private float autoWalkSpeed = 2f; // 자동 걷기 속도
+    private float autoWalkSpeed = 5f; // 자동 걷기 속도
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -62,6 +62,12 @@ public class PlayerController : MonoBehaviour
     {
         // 위쪽으로 힘을 가함
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+        // 점프 효과음 재생
+        if (AudioManager.Instance != null && AudioManager.Instance.jumpSfx != null)
+        {
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.jumpSfx);
+        }
         
         // 점프 즉시 바닥에서 떨어졌다고 처리 (연타 방지)
         isGrounded = false;
@@ -75,12 +81,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true; // 점프 가능 상태로 변경
             Debug.Log("땅에 착지했습니다.");
-        }
-
-        // 2. 적(Enemy) 태그와 충돌했는지 확인
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            TakeDamage(1, collision.gameObject); // 데미지와 함께 적 오브젝트 전달
         }
     }
 
@@ -129,6 +129,12 @@ public class PlayerController : MonoBehaviour
     // 트리거 충돌 감지 함수 (아이템 획득)
     void OnTriggerEnter2D(Collider2D other)
     {
+        // 적(Enemy) 태그와 충돌했는지 확인
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(1, other.gameObject); // 데미지와 함께 적 오브젝트 전달
+        }
+
         // 아이템(Item) 태그와 접촉했는지 확인
         if (other.gameObject.CompareTag("Item"))
         {

@@ -9,6 +9,7 @@ TagManager:
   - Item
   - EndPoint
   - Tree
+  - Boss
   layers:
   - Default
   - TransparentFX

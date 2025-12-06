@@ -103,6 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee54a8b5bf0b8ba46a65c36c8f741a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoMove
-  speed: 0.5
+  speed: 10
   rotationSpeed: 100
   lifeTime: 10

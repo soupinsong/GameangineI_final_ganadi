@@ -48,14 +48,26 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    // 오브젝트가 파괴될 때 호출됩니다.
+    void OnDestroy()
+    {
+        // 현재 인스턴스가 싱글톤 인스턴스라면, 참조를 null로 초기화합니다.
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
     /// <summary>
     /// 씬이 로드될 때마다 호출되는 함수
     /// </summary>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 게임 씬일 경우에만 GameOverPanel을 찾습니다.
-        // "MainUI", "BossScene" 등 게임오버 패널이 없는 씬의 이름을 추가하여 제외할 수 있습니다.
-        if (scene.name != "MainUI")
+        // 러닝 게임 씬일 경우에만 GameOverPanel을 찾아서 비활성화합니다.
+        // 보스 씬에서는 UIManager가 패널을 직접 제어하도록 이 로직을 실행하지 않습니다.
+        if (scene.name == "Choco_Run" ||
+            scene.name == "BANANA_Run" ||
+            scene.name == "StrawBerry_Run")
         {            
             // UIManager의 인스턴스를 다시 찾습니다.
             if (UIManager.Instance != null)
@@ -63,6 +75,27 @@ public class GameManager : MonoBehaviour
                 // UIManager를 통해 GameOverPanel을 참조합니다.
                 gameOverPanel = UIManager.Instance.gameOverPanel;
                 if (gameOverPanel != null) gameOverPanel.SetActive(false);
+            }
+        }
+
+        // 씬 이름에 따라 적절한 BGM을 재생합니다.
+        if (AudioManager.Instance != null)
+        {
+            switch (scene.name)
+            {
+                case "MainUI":
+                    AudioManager.Instance.PlayBgm(AudioManager.Instance.mainMenuBgm);
+                    break;
+                case "Choco_Run":
+                case "BANANA_Run":
+                case "StrawBerry_Run":
+                    AudioManager.Instance.PlayBgm(AudioManager.Instance.runningGameBgm);
+                    break;
+                case "Choco_Boss":
+                case "Banana_Boss":
+                case "Strawberry_Boss":
+                    AudioManager.Instance.PlayBgm(AudioManager.Instance.bossSceneBgm);
+                    break;
             }
         }
     }
@@ -75,6 +108,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"엔드포인트 도달! 수집한 아이템: {itemCount}개");
         CollectedItemCount = itemCount;
+
+        // 보스전을 위해 체력을 다시 3으로 초기화합니다.
+        PlayerHealth = 3;
 
         string currentScene = SceneManager.GetActiveScene().name;
         string nextScene = "";
@@ -137,6 +173,18 @@ public class GameManager : MonoBehaviour
         
         // UIManager를 통해 설정 패널의 활성화 상태를 토글합니다.
         if (UIManager.Instance != null) UIManager.Instance.ToggleInGameSettingsPanel();
+    }
+
+    /// <summary>
+    /// 현재 보스 전투 씬을 다시 시작합니다.
+    /// </summary>
+    public void RetryBossBattle()
+    {
+        // 게임 시간을 다시 활성화합니다.
+        Time.timeScale = 1f;
+
+        // 현재 씬을 다시 로드합니다.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     #region 게임 오버 UI 버튼 함수

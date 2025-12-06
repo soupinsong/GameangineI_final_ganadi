@@ -98,6 +98,15 @@ public class MainUI : MonoBehaviour
     public void LoadMainUIScene()
     {
         if (AudioManager.Instance != null) AudioManager.Instance.PlaySfx(AudioManager.Instance.buttonClickSfx);
+
+        // 다른 씬에서 메인 화면으로 돌아갈 때, 기존 UIManager 인스턴스를 파괴합니다.
+        if (UIManager.Instance != null)
+        {
+            Destroy(UIManager.Instance.gameObject);
+        }
+
+        // 게임 오버 또는 클리어로 인해 멈춘 게임 시간을 다시 활성화합니다.
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainUI");
          // 재시도 시 아이템 개수를 초기화합니다.
         PlayerController.ResetItemCount();
