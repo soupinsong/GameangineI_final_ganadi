@@ -1,11 +1,18 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(AudioSource))] // 마이크 입력을 위해 AudioSource가 필요합니다.
-public class Player_Controler : MonoBehaviour
+public class Player_Controler : MonoBehaviour // 클래스 이름이 Player_Controler로 되어있어 그대로 사용합니다.
 {
     [Header("Movement")]
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+
+    [Header("Health")]
+    public int maxHealth = 3;
+    private int currentHealth;
+    public float invincibilityDuration = 1.5f; // 무적 시간
+    private bool isInvincible = false; // 현재 무적 상태인지 여부
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -24,6 +31,7 @@ public class Player_Controler : MonoBehaviour
     private Rigidbody2D rb;
     private float moveInput;
     private bool isGrounded;
+    private SpriteRenderer spriteRenderer;
     private Animator anim;
     private AudioSource audioSource;
     private string micDevice;
@@ -37,6 +45,7 @@ public class Player_Controler : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         if (rb == null)
         {
@@ -51,6 +60,13 @@ public class Player_Controler : MonoBehaviour
         if (attackPoint == null)
         {
             Debug.LogError("Attack Point Transform이 할당되지 않았습니다. 플레이어 자식으로 빈 오브젝트를 만들어 할당해주세요.");
+        }
+
+        // GameManager에서 체력 정보를 가져옵니다.
+        if (GameManager.Instance != null)
+        {
+            currentHealth = GameManager.Instance.PlayerHealth;
+            if (UIManager.Instance != null) UIManager.Instance.UpdateHealthUI(currentHealth);
         }
 
         // 마이크 초기화
@@ -115,7 +131,7 @@ public class Player_Controler : MonoBehaviour
         // 점프 (Space 키)
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
 
         // 소리 감지
@@ -168,15 +184,50 @@ public class Player_Controler : MonoBehaviour
         // 감지된 모든 적에게 데미지 전달
         foreach(Collider2D enemyCollider in hitEnemies)
         {
-            EnemyMovement enemy = enemyCollider.GetComponent<EnemyMovement>();
+            Boss_EnemyMovement enemy = enemyCollider.GetComponent<Boss_EnemyMovement>();
             if (enemy != null)
             {
-                enemy.TakeDamage();
+                enemy.TakeDamage(); // TakeDamage가 있는 적을 찾으면
                 break; // 한 명의 적만 공격하고 반복문을 종료합니다.
             }
         }
     }
 
+    // 적에게 공격받았을 때 호출될 함수 (임시로 추가)
+    public void TakeDamage(int damage)
+    {
+        if (isInvincible) return; // 무적 상태이면 데미지를 입지 않음
+
+        currentHealth -= damage;
+        GameManager.Instance.PlayerHealth = currentHealth; // GameManager에 체력 업데이트
+
+        // 충돌 효과음 재생
+        if (AudioManager.Instance != null) AudioManager.Instance.PlaySfx(AudioManager.Instance.collisionSfx);
+
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateHealthUI(currentHealth);
+        }
+
+        // 무적 코루틴 시작
+        StartCoroutine(InvincibilityCoroutine());
+
+        if (currentHealth <= 0)
+        {
+            // 플레이어 사망 처리 (GameManager에 위임)
+            GameManager.Instance.PlayerDied();
+        }
+    }
+
+    // 충돌 감지
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // 적(Enemy) 태그와 충돌했는지 확인
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(1); // 데미지 1을 입음
+        }
+    }
     void FixedUpdate()
     {
         // 물리 기반 이동 적용
@@ -184,6 +235,24 @@ public class Player_Controler : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
+    }
+
+    IEnumerator InvincibilityCoroutine()
+    {
+        isInvincible = true; // 무적 상태 시작
+
+        // 무적 시간 동안 깜빡이는 효과
+        float endTime = Time.time + invincibilityDuration;
+        while (Time.time < endTime)
+        {
+            // 스프라이트를 껐다 켬
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        // 무적 시간이 끝나면 다시 원래 상태로 복구
+        spriteRenderer.enabled = true;
+        isInvincible = false; // 무적 상태 종료
     }
 
     void OnDrawGizmosSelected()

@@ -1,20 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: f93b38d7f01acc8468cc593a6b930cce
-=======
 guid: 213d802349fe078459b3869f847c37c0
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-<<<<<<< HEAD
-    enableMipMap: 1
-=======
     enableMipMap: 0
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -45,39 +37,22 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-<<<<<<< HEAD
-    wrapU: 0
-    wrapV: 0
-=======
     wrapU: 1
     wrapV: 1
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 2
-=======
   spriteMode: 1
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
-  alphaIsTransparency: 0
-=======
   spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -97,11 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-<<<<<<< HEAD
-    textureCompression: 0
-=======
     textureCompression: 1
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,42 +95,12 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites:
-    - serializedVersion: 2
-      name: Choco_Tower_0
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 0
-        width: 669
-        height: 570
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eac6fe05d01e6b548abe31c75edacdd7
-      internalID: 933931182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-=======
     sprites: []
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     outline: []
     customData: 
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: 258580c1c07affe45a579adc3ebdd82a
-=======
     spriteID: 5e97eb03825dee720800000000000000
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     internalID: 0
     vertices: []
     indices: 
@@ -167,16 +108,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-<<<<<<< HEAD
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
-    nameFileIdTable:
-      Choco_Tower_0: 933931182
-=======
       entries: []
     nameFileIdTable: {}
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

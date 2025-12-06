@@ -14,16 +14,16 @@ public class InGameUIConnector : MonoBehaviour
         {
             // 기존에 Inspector에서 설정된 리스너를 모두 제거합니다.
             settingsButton.onClick.RemoveAllListeners();
-            
-            // 스크립트에서 올바른 GameManager의 PauseGameForSettings 메서드를 리스너로 추가합니다.
-            settingsButton.onClick.AddListener(GameManager.Instance.PauseGameForSettings);
+
+            // 스크립트에서 GameManager의 TogglePauseGame 메서드를 리스너로 추가합니다.
+            settingsButton.onClick.AddListener(GameManager.Instance.TogglePauseGame);
         }
 
         // 재개 버튼이 할당되었는지, GameManager 인스턴스가 존재하는지 확인합니다.
         if (resumeButton != null && GameManager.Instance != null)
         {
             resumeButton.onClick.RemoveAllListeners();
-            resumeButton.onClick.AddListener(GameManager.Instance.ResumeGameFromSettings);
+            resumeButton.onClick.AddListener(GameManager.Instance.TogglePauseGame);
         }
         else
         {

@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/GANADI/Scences/Choco_Boss.unity
-=======
     path: Assets/GANADI/Scences/MainUI.unity
     guid: 2f1b26ec32aa83e40b083df328b29321
   - enabled: 1
@@ -22,7 +19,6 @@ EditorBuildSettings:
     guid: c684f5468bdc79241802eb46921d6cda
   - enabled: 1
     path: Assets/GANADI_Boss/bScences/Choco_Boss.unity
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/GANADI_Boss/bScences/Strawberry_Boss.unity

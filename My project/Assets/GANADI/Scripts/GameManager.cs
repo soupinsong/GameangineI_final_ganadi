@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     [Header("게임 데이터")]
     public int CollectedItemCount { get; set; } = 0;
+    public int PlayerHealth { get; set; } = 3; // 플레이어 체력 추가
+    private bool isPaused = false;
 
     [Header("게임 오버 UI")]
     private GameObject gameOverPanel; // 게임 오버 시 활성화할 패널 (씬 로드 시 자동으로 찾음)
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         // 게임 씬일 경우에만 GameOverPanel을 찾습니다.
         // "MainUI", "BossScene" 등 게임오버 패널이 없는 씬의 이름을 추가하여 제외할 수 있습니다.
-        if (scene.name != "MainUI" && scene.name != "BossScene")
+        if (scene.name != "MainUI")
         {            
             // UIManager의 인스턴스를 다시 찾습니다.
             if (UIManager.Instance != null)
@@ -102,6 +104,9 @@ public class GameManager : MonoBehaviour
         // 게임 오버 효과음 재생
         if (AudioManager.Instance != null) AudioManager.Instance.PlaySfx(AudioManager.Instance.gameOverSfx);
 
+        // 다음 게임을 위해 체력 초기화
+        PlayerHealth = 3;
+
         if (gameOverPanel != null)
         {
             // 게임 오버 패널 활성화
@@ -115,29 +120,23 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 게임을 일시정지하고 설정 UI를 엽니다. (설정 버튼에 연결)
+    /// 게임 일시정지 상태를 토글하고 설정 UI를 열거나 닫습니다.
     /// </summary>
-    public void PauseGameForSettings()
+    public void TogglePauseGame()
     {
-        // 게임 시간을 멈춤
-        Time.timeScale = 0f;
+        isPaused = !isPaused;
 
-        // UIManager가 존재하면 설정 패널을 활성화합니다.
-        if (UIManager.Instance != null)
-            UIManager.Instance.ToggleInGameSettingsPanel();
-    }
-
-    /// <summary>
-    /// 게임을 재개하고 설정 UI를 닫습니다. (설정 패널의 X 버튼에 연결)
-    /// </summary>
-    public void ResumeGameFromSettings()
-    {
-        // 게임 시간을 다시 활성화
-        Time.timeScale = 1f;
-
-        // UIManager가 존재하면 설정 패널을 비활성화합니다.
-        if (UIManager.Instance != null)
-            UIManager.Instance.ToggleInGameSettingsPanel();
+        if (isPaused)
+        {
+            Time.timeScale = 0f; // 게임 시간을 멈춤
+        }
+        else
+        {
+            Time.timeScale = 1f; // 게임 시간을 다시 활성화
+        }
+        
+        // UIManager를 통해 설정 패널의 활성화 상태를 토글합니다.
+        if (UIManager.Instance != null) UIManager.Instance.ToggleInGameSettingsPanel();
     }
 
     #region 게임 오버 UI 버튼 함수

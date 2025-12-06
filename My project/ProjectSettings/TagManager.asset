@@ -6,23 +6,20 @@ TagManager:
   tags:
   - Ground
   - Enemy
-<<<<<<< HEAD
-=======
   - Item
   - EndPoint
   - Tree
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
   - Player
   - Enemy
-  - Ground
+  - 
+  - 
   - 
   - 
   - 
@@ -46,28 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BackGround
-    uniqueID: 1440299543
-    locked: 0
-  - name: Ground
-    uniqueID: 3905930191
-    locked: 0
-  - name: Props
-    uniqueID: 1783133759
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
-  - name: Characters
-    uniqueID: 2184007589
-    locked: 0
-  - name: ForeGround
-    uniqueID: 1524874821
-    locked: 0
-  - name: UI
-    uniqueID: 1142112543
-=======
   - name: BackGround
     uniqueID: 1344624073
     locked: 0
@@ -77,12 +55,20 @@ TagManager:
   - name: Item
     uniqueID: 3140869679
     locked: 0
+  - name: Ground
+    uniqueID: 3781337853
+    locked: 0
+  - name: Prop
+    uniqueID: 1197431787
+    locked: 0
   - name: Character
     uniqueID: 2926094541
     locked: 0
+  - name: Enemy
+    uniqueID: 3108890359
+    locked: 0
   - name: UI
     uniqueID: 2746239853
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     locked: 0
   m_RenderingLayers:
   - Default

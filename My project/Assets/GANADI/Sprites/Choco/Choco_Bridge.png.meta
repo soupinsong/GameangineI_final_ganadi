@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: ac29d36b4d6a64d40bf69ce7951ee655
-=======
 guid: 6fb4429a951490c458cdf77b1817b943
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -38,11 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< HEAD
-    filterMode: 1
-=======
     filterMode: 0
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,20 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 2
-=======
   spriteMode: 1
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  spritePixelsToUnits: 100
-=======
   spritePixelsToUnits: 128
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,42 +95,12 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites:
-    - serializedVersion: 2
-      name: Choco_Bridge_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 764
-        height: 436
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7a8a7fd792cdbe4ebd11c5f1eb5fbc4
-      internalID: 175912518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-=======
     sprites: []
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     outline: []
     customData: 
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: 1e7440b404734b14aa60acb755f67103
-=======
     spriteID: 5e97eb03825dee720800000000000000
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     internalID: 0
     vertices: []
     indices: 
@@ -154,16 +108,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-<<<<<<< HEAD
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
-    nameFileIdTable:
-      Choco_Bridge_0: 175912518
-=======
       entries: []
     nameFileIdTable: {}
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

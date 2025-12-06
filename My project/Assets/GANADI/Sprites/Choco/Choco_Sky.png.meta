@@ -1,20 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: c3ae431a4ed35754c9bfef9c67ceeae7
-=======
 guid: a737c8215d5d2504291e61023f2dfc85
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-<<<<<<< HEAD
-    enableMipMap: 1
-=======
     enableMipMap: 0
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -51,28 +43,16 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 2
-=======
   spriteMode: 1
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
-  alphaIsTransparency: 0
-=======
   spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -92,11 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-<<<<<<< HEAD
-    textureCompression: 0
-=======
     textureCompression: 1
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,42 +95,12 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites:
-    - serializedVersion: 2
-      name: Choco_Sky_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 888
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f82391101816c7b459a0675bd0ee68ad
-      internalID: -197195506
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-=======
     sprites: []
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     outline: []
     customData: 
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: 9ef0a053858fb8646be95faa4ab5dd87
-=======
     spriteID: 5e97eb03825dee720800000000000000
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
     internalID: 0
     vertices: []
     indices: 
@@ -162,16 +108,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-<<<<<<< HEAD
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
-    nameFileIdTable:
-      Choco_Sky_0: -197195506
-=======
       entries: []
     nameFileIdTable: {}
->>>>>>> 730570f0649d9ffb6ebe62bea5d381b2631d3802
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
